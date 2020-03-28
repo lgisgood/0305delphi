@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2020/03/28 11:02:14.385,=D:\Embarcadero\Unit1.pas</Transaction>
+    <Transaction>2020/03/28 11:02:26.290,D:\Embarcadero\studio\20200328-初始线程\demo1\Unit1.dfm=D:\Embarcadero\Unit1.dfm</Transaction>
+    <Transaction>2020/03/28 11:02:26.290,D:\Embarcadero\studio\20200328-初始线程\demo1\Unit1.pas=D:\Embarcadero\Unit1.pas</Transaction>
+    <Transaction>2020/03/28 11:02:27.424,D:\Embarcadero\studio\20200328-初始线程\demo1\Project1.dproj=D:\Embarcadero\Project1.dproj</Transaction>
+    <Transaction>2020/03/28 11:04:14.360,=D:\Embarcadero\studio\20200328-初始线程\demo1\Unit2.pas</Transaction>
+    <Transaction>2020/03/28 11:04:40.872,D:\Embarcadero\studio\20200328-初始线程\demo1\UThreads.pas=D:\Embarcadero\studio\20200328-初始线程\demo1\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

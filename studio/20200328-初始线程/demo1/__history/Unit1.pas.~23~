@@ -1,0 +1,91 @@
+unit Unit1;
+
+interface
+
+uses
+  UThreads,Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    btn1: TButton;
+    Label1: TLabel;
+    Button1: TButton;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    btnbstart: TButton;
+    btnstop: TButton;
+    btncontinue: TButton;
+    btnend: TButton;
+    procedure btn1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure btnbstartClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnstopClick(Sender: TObject);
+    procedure btncontinueClick(Sender: TObject);
+    procedure btnendClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+var
+WorkThread:TWork;
+
+implementation
+
+{$R *.dfm}
+procedure Work();
+var
+Num:Integer;
+begin
+    for Num := 1 to 1000 do begin
+     Form1.Label1.Caption:=Num.ToString;
+     //线程休眠100毫秒
+     TThread.Sleep(100);
+  end;
+end;
+procedure TForm1.btn1Click(Sender: TObject);
+
+begin
+  // 匿名线程
+  TThread.CreateAnonymousThread(work).start;
+
+end;
+procedure TForm1.btnbstartClick(Sender: TObject);
+
+begin
+//true线程创建完对象后是立即执行还是先挂起
+
+  WorkThread.Start;
+end;
+
+procedure TForm1.btncontinueClick(Sender: TObject);
+begin
+   WorkThread.Suspended:=False;
+end;
+
+procedure TForm1.btnendClick(Sender: TObject);
+begin
+   WorkThread.OnTerminate:=True;
+end;
+
+procedure TForm1.btnstopClick(Sender: TObject);
+begin
+   WorkThread.Suspended:=True;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+   Label1.Caption:='0';
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+   WorkThread:=TWork.Create(True);
+end;
+
+end.
